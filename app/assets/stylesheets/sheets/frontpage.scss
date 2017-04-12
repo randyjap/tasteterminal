@@ -1,0 +1,40 @@
+body {
+  text-align: center;
+}
+
+header, #content, #footer {
+
+}
+
+.feature {
+  display: inline-block;
+}
+
+
+.feature-gallery {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1420px;
+}
+
+.gallery-image, .gallery-image > img {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+}
+
+.gallery-overlay-text {
+  background-color:rgba(0, 0, 0, 0.5);
+  bottom: 65px;
+  height: 60px;
+  position: relative;
+}
+
+.gallery-overlay-text > p {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
