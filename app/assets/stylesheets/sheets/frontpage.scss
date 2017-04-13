@@ -2,8 +2,8 @@ body {
   text-align: center;
 }
 
-header, #content, #footer {
-
+#header {
+  display: inline-block;
 }
 
 .feature {
@@ -86,4 +86,27 @@ h1 {
 
 .main-content {
   text-align: left;
+}
+
+.top {
+  max-width: 1411px;
+  display: flex;
+}
+
+.ad-banner-top {
+  margin: auto;
+}
+
+.logo-title {
+  text-align: left;
+}
+
+/*Media Queries*/
+@media (max-width: 1100px) {
+  .top {
+    flex-flow: column;
+  }
+  .logo-title {
+    text-align: center;
+  }
 }
