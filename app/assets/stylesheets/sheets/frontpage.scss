@@ -10,7 +10,6 @@ header, #content, #footer {
   display: inline-block;
 }
 
-
 .feature-gallery {
   display: flex;
   justify-content: space-between;
@@ -33,6 +32,52 @@ header, #content, #footer {
 
 .gallery-overlay-text > p {
   color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#content {
+  display: inline-block;
+}
+
+#content-parent {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+#content-left {
+  max-width: 1011px;
+}
+
+#content-right {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: left;
+}
+
+.menu {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub-menu {
+  width: 33%;
+  position: relative;
+}
+
+.sub-menu > ul {
   position: absolute;
   top: 50%;
   left: 50%;
