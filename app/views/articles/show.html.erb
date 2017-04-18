@@ -2,7 +2,7 @@
   <div id="header">
     <section class="top">
       <div class="logo-title">
-        <a href="/"><img src=<%= asset_path("logo.gif") %> /></a>
+        <a href="../"><img src=<%= asset_path("logo.gif") %> /></a>
       </div>
       <div class="ad-banner-top">
         <img class="ad-banner-top" src=<%= asset_path("ads728.png") %> />
@@ -10,12 +10,7 @@
     </section>
     <section class="bottom">
       <div class="feature-gallery">
-        <% @featured.each do |featured| %>
-          <div class="gallery-image">
-            <img src=<%= asset_path("1.jpg") %> />
-            <div class="gallery-overlay-text"><%= link_to featured.title[0..25], article_path(featured) %></div>
-          </div>
-        <% end %>
+
       </div>
     </section>
   </div>
@@ -28,35 +23,33 @@
       <div class="menu">
         <div class="sub-menu">
           <ul>
-            <li><a href="?category=sim cards">SIM CARDS</a></li>
-            <li><a href="?location=hong kong">HONG KONG</a></li>
-            <li><a href="?location=japan">JAPAN</a></li>
-            <li><a href="?location=taiwan">TAIWAN</a></li>
+            <li><a href="../?category=sim cards">SIM CARDS</a></li>
+            <li><a href="../?location=hong kong">HONG KONG</a></li>
+            <li><a href="../?location=japan">JAPAN</a></li>
+            <li><a href="../?location=taiwan">TAIWAN</a></li>
           </ul>
         </div>
         <div class="sub-menu">
           <ul>
-            <li><a href="?category=smart packing">SMART PACKING</a></li>
-            <li><a href="?category=adventure">ADVENTURE</a></li>
-            <li><a href="?category=food">FOOD</a></li>
+            <li><a href="../?category=smart packing">SMART PACKING</a></li>
+            <li><a href="../?category=adventure">ADVENTURE</a></li>
+            <li><a href="../?category=food">FOOD</a></li>
           </ul>
         </div>
         <div class="sub-menu">
           <ul>
-            <li><a href="?category=lounge life">THAT LOUNGE LIFE</a></li>
-            <li><a href="?category=best lounges">BEST AIRPORT LOUNGES</a></li>
+            <li><a href="../?category=lounge life">THAT LOUNGE LIFE</a></li>
+            <li><a href="../?category=best lounges">BEST AIRPORT LOUNGES</a></li>
           </ul>
         </div>
       </div>
     </section>
     <section class="main-content">
-      <h1><%= @heading ? @heading.upcase : "NEWS" %></h1>
-      <% @articles.each do |article| %>
-        <div class="article">
-          <h2><%= "#{article.date.to_formatted_s(:rfc822)} #{article.title} by  #{article.author.first_name}" %></h2>
-          <%= article.article.html_safe.length > 200 ? article.article[0..200].html_safe + "... ": article.article.html_safe %><%= link_to "read more", article_path(article) %>
-        </div>
-      <% end %>
+      <h1><%= @article.title.upcase %></h1>
+      <div class="article">
+        <h2><%= "#{@article.date.to_formatted_s(:rfc822)} #{@article.title} by  #{@article.author.first_name}" %></h2>
+        <%= @article.article.html_safe %>
+      </div>
     </section>
   </section>
   <section class="content-right">
