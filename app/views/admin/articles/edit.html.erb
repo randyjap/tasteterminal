@@ -1,5 +1,12 @@
 <%= form_for [:admin, @article] do |f| %>
   <p>
+    <%= f.radio_button :approved, false, checked: true %>
+    <%= f.label :approved, "Not Approved" %>
+    <%= f.radio_button :approved, true %>
+    <%= f.label :approved, "Approved" %>
+  </p>
+
+  <p>
     <%= f.label :title %><br>
     <%= f.text_field :title, size: 150 %>
   </p>
