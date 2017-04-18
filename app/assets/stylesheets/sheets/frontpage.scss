@@ -1,3 +1,7 @@
+* {
+  font-size: 1.5vw;
+}
+
 h1, h2, h3 {
   font-family: 'Roboto', sans-serif;
 }
@@ -116,5 +120,24 @@ h1 {
 
   main#content {
     flex-direction: column;
+  }
+
+  .menu {
+    flex-direction: column;
+    font-size: 3vw;
+  }
+
+  .sub-menu {
+    padding-bottom: 20px;
+  }
+
+  .gallery-overlay-text {
+    bottom: 12%;
+    font-size: 3vw;
+  }
+
+  * {
+    font-size: 2vw;
+    line-height: 1.4;
   }
 }
