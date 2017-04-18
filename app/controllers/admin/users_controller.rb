@@ -3,23 +3,28 @@ class Admin::UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      @user, status: 200
+      redirect_to [:admin, @user]
     else
-      @user.errors.full_messages, status: 422
+      @user.errors.full_messages
     end
   end
 
   def index
-    @user = User.find(current_user.id)
+    @users = User.all
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user)
+      .permit(:username, :first_name, :last_name, :email, :bio, :password)
   end
 end

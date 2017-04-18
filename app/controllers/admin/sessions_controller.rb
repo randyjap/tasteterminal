@@ -11,8 +11,7 @@ class Admin::SessionsController < ApplicationController
       sign_in(@user)
       @user
     else
-      error = ["Invalid username or password"]
-      error, status: 401
+      @user.errors.full_messages
     end
   end
 
@@ -20,10 +19,7 @@ class Admin::SessionsController < ApplicationController
     @user = current_user
     if @user
       sign_out
-      @user, status: 200
-    else
-      error = ["Not logged in"]
-      error, status: 404
     end
+    render new
   end
 end
