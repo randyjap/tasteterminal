@@ -15,7 +15,7 @@ class FrontpageController < ApplicationController
     elsif @user
       @articles = Article.where(approved: true).where(user: @user)
     else
-      @articles = Article.where(approved: true)
+      @articles = Article.where(approved: true).limit(8)
     end
 
     @featured = Article.where(featured: true).limit(4)
