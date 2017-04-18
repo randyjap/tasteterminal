@@ -22,12 +22,11 @@ div#header {
 }
 
 section.top {
+  width: 100%;
   display: flex;
-  align-items: center;
 }
 
 section.top div {
-  flex: 1;
   display: flex;
   justify-content: space-around;
 }
@@ -126,6 +125,11 @@ h1 {
 
 section.content-menu {
   padding-bottom: 20px;
+}
+
+img.ad-banner-top {
+  width: 100%;
+  height: auto;
 }
 
 /*Media Queries*/
