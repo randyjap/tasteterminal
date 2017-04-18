@@ -27,7 +27,6 @@
   <th>Featured</th>
   <th>Category</th>
   <th>Location</th>
-  <th>Article</th>
   <% @articles.each do |article| %>
     <tr>
       <td><%= link_to article.approved ? "Approved" : "Not Approved", admin_article_path(article) %></td>
@@ -38,7 +37,6 @@
       <td><%= link_to article.featured ? "Featured" : "Not Featured", admin_article_path(article) %></td>
       <td><%= link_to article.category, admin_article_path(article) %></td>
       <td><%= link_to article.location, admin_article_path(article) %></td>
-      <td><%= link_to (article.article.length > 50 ? article.article[0..50].html_safe + "..." : article.article.html_safe), admin_article_path(article) %></td>
     </tr>
   <% end %>
 </table>
