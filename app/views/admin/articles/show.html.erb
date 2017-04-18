@@ -1,29 +1,31 @@
-<p>
-  <strong>Author:</strong>
-  <%= @article.author.username %>
-</p>
+<%= link_to 'Edit', edit_admin_article_path(@article) %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<table>
+  <tr>
+    <td><h2>Author:</h2></td>
+    <td><%= @article.author.username %></td>
+  </tr>
 
-<p>
-  <strong>Article:</strong>
-  <%= @article.article %>
-</p>
+  <tr>
+    <td><h2>Title:</h2></td>
+    <td><%= @article.title %></td>
+  </tr>
 
-<p>
-  <strong>Date:</strong>
-  <%= @article.date %>
-</p>
+  <tr>
+    <td><h2>Date:</h2></td>
+    <td><%= @article.date %></td>
+  </tr>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category %>
-</p>
+  <tr>
+    <td><h2>Category:</h2></td>
+    <td><%= @article.category %></td>
+  </tr>
 
-<p>
-  <strong>Featured:</strong>
-  <%= @article.featured %>
-</p>
+  <tr>
+    <td><h2>Featured:</h2></td>
+    <td><%= @article.featured %></td>
+  </tr>
+</table>
+</br>
+<h2>Article:</h2>
+<%= @article.article.html_safe %>
