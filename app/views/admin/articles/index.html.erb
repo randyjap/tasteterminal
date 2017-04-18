@@ -1,6 +1,6 @@
 <style>
   table {
-    display: flex;
+    width: 100%;
   }
 
   th {
@@ -11,10 +11,6 @@
     border: 1px solid black;
   }
 
-  tr {
-    justify-content: space-between;
-    align-content: center;
-  }
 </style>
 
 <h1>Articles</h1>
@@ -23,6 +19,7 @@
   <th>ID</th>
   <th>Author</th>
   <th>Title</th>
+  <th>Date</th>
   <th>Featured</th>
   <th>Category</th>
   <th>Article</th>
@@ -32,9 +29,10 @@
       <td><%= article.id %></td>
       <td><%= article.author.username %></td>
       <td><%= article.title %></td>
+      <td><%= article.date %></td>
       <td><%= article.featured ? "Featured" : "Not Featured" %></td>
       <td><%= article.category %></td>
-      <td><%= article.article.html_safe %></td>
+      <td><%= article.article.length > 50 ? article.article[0..50].html_safe + "..." : article.article.html_safe %></td>
       <td><%= link_to 'Show', admin_article_path(article) %></td>
     </tr>
   <% end %>
