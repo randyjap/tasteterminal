@@ -10,22 +10,12 @@
     </section>
     <section class="bottom">
       <div class="feature-gallery">
-        <div class="gallery-image">
-          <img src=<%= asset_path("1.jpg") %> />
-          <div class="gallery-overlay-text"><p>UK POWER GUIDE</br>ADAPTOR GUIDE</p></div>
-        </div>
-        <div class="gallery-image">
-          <img src=<%= asset_path("1.jpg") %> />
-          <div class="gallery-overlay-text"><p>UK POWER GUIDE</br>ADAPTOR GUIDE</p></div>
-        </div>
-        <div class="gallery-image">
-          <img src=<%= asset_path("1.jpg") %> />
-          <div class="gallery-overlay-text"><p>UK POWER GUIDE</br>ADAPTOR GUIDE</p></div>
-        </div>
-        <div class="gallery-image">
-          <img src=<%= asset_path("1.jpg") %> />
-          <div class="gallery-overlay-text"><p>UK POWER GUIDE</br>ADAPTOR GUIDE</p></div>
-        </div>
+        <% @featured.each do |featured| %>
+          <div class="gallery-image">
+            <img src=<%= asset_path("1.jpg") %> />
+            <div class="gallery-overlay-text"><p><%= featured.title %></p></div>
+          </div>
+        <% end %>
       </div>
     </section>
   </div>
@@ -38,7 +28,7 @@
       <div class="menu">
         <div class="sub-menu">
           <ul>
-            <li>SIM CARDS</li>
+            <li><a href="?category=sim cards">SIM CARDS</a></li>
             <li>HONG KONG</li>
             <li>JAPAN</li>
             <li>TAIWAN</li>
@@ -61,30 +51,18 @@
     </section>
     <section class="main-content">
       <h1>NEWS</h1>
-      <div class="article">
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="article">
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-      <div class="article">
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+      <% @articles.each do |article| %>
+        <div class="article">
+          <h2><%= "#{article.date.to_formatted_s(:rfc822)} #{article.title} #{article.author.first_name}" %></h2>
+          <%= article.article.length > 50 ? article.article[0..50].html_safe : article.article.html_safe %>
+        </div>
+      <% end %>
     </section>
   </section>
   <section class="content-right">
     <div class="right-ads">
-        <img class="ad-banner-top" src=<%= asset_path("ads320.gif") %> />
-        <img class="ad-banner-top" src=<%= asset_path("ads320.gif") %> />
+        <div><img class="ad-banner-top" src=<%= asset_path("ads320.gif") %> /></div>
+        <div><img class="ad-banner-top" src=<%= asset_path("ads320.gif") %> /></div>
         <div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

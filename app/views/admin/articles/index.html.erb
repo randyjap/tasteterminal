@@ -14,10 +14,12 @@
 </style>
 
 <%= link_to "Back to Admin Navigation", admin_root_path %>
+<%= link_to "Create New Article", new_admin_article_path %>
 
 <h1>Articles</h1>
 
 <table>
+  <th>Approved</th>
   <th>ID</th>
   <th>Author</th>
   <th>Title</th>
@@ -27,6 +29,7 @@
   <th>Article</th>
   <% @articles.each do |article| %>
     <tr>
+      <td><%= link_to article.approved ? "Approved" : "Not Approved", admin_article_path(article) %></td>
       <td><%= link_to article.id, admin_article_path(article) %></td>
       <td><%= link_to article.author.username, admin_article_path(article) %></td>
       <td><%= link_to article.title, admin_article_path(article) %></td>
