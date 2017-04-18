@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :articles, :users, :sessions
+    root to: 'nav#index'
   end
 end
