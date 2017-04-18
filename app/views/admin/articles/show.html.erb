@@ -1,6 +1,11 @@
-<%= link_to 'Edit', edit_admin_article_path(@article) %>
+<%= link_to "Back to Article Index", admin_articles_path %></br>
 
 <table>
+  <tr>
+    <td><h2>Article ID:</h2></td>
+    <td><%= @article.id %></td>
+  </tr>
+
   <tr>
     <td><h2>Approved:</h2></td>
     <td><%= @article.approved %></td>
@@ -31,6 +36,7 @@
     <td><%= @article.featured %></td>
   </tr>
 </table>
+<%= link_to 'Edit this Article', edit_admin_article_path(@article) %>
 </br>
 <h2>Article:</h2>
 <%= @article.article.html_safe %>
