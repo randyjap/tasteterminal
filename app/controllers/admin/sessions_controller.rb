@@ -3,23 +3,21 @@ class Admin::SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(
-      params[:user][:username],
-      params[:user][:password]
+      params[:session][:username],
+      params[:session][:password]
     )
 
     if @user
       sign_in(@user)
-      @user
+      redirect_to new_admin_article_path
     else
-      @user.errors.full_messages
+      redirect_to new_admin_session_path
     end
   end
 
   def destroy
     @user = current_user
-    if @user
-      sign_out
-    end
+    sign_out if @user
     render new
   end
 end

@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   root to: 'frontpage#index'
 
   namespace :admin do
-    resources :articles, :users, :session
+    resources :articles, :users, :sessions
   end
 end

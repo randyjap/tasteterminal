@@ -1,12 +1,29 @@
-<%= form_for :article do |f| %>
+<%= form_for [:admin, @article] do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, size: 150 %>
   </p>
 
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :article %><br>
+    <%= f.text_area :article, cols: "150", rows: "30" %>
+  </p>
+
+  <p>
+    <%= f.label :category %><br>
+    <%= f.select :category, [['Hack','hack'],['Blog','blog'],['Review','review']] %>
+  </p>
+
+  <p>
+    <%= f.radio_button :featured, false, checked: true %>
+    <%= f.label :featured, "Not Featured Article" %>
+    <%= f.radio_button :featured, true %>
+    <%= f.label :featured, "Featured Article" %>
+  </p>
+
+  <p>
+    <%= f.label :date %><br>
+    <%= date_select :article, :date %>
   </p>
 
   <p>
