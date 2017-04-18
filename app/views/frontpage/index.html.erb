@@ -13,7 +13,7 @@
         <% @featured.each do |featured| %>
           <div class="gallery-image">
             <img src=<%= asset_path("1.jpg") %> />
-            <div class="gallery-overlay-text"><p><%= featured.title %></p></div>
+            <div class="gallery-overlay-text"><p><%= featured.title[0..25] %></p></div>
           </div>
         <% end %>
       </div>
@@ -29,31 +29,31 @@
         <div class="sub-menu">
           <ul>
             <li><a href="?category=sim cards">SIM CARDS</a></li>
-            <li>HONG KONG</li>
-            <li>JAPAN</li>
-            <li>TAIWAN</li>
+            <li><a href="?location=hong kong">HONG KONG</a></li>
+            <li><a href="?location=japan">JAPAN</a></li>
+            <li><a href="?location=taiwan">TAIWAN</a></li>
           </ul>
         </div>
         <div class="sub-menu">
           <ul>
-            <li>SMART PACKING</li>
-            <li>ADVENTURE</li>
-            <li>FOOD</li>
+            <li><a href="?category=smart packing">SMART PACKING</a></li>
+            <li><a href="?category=adventure">ADVENTURE</a></li>
+            <li><a href="?category=food">FOOD</a></li>
           </ul>
         </div>
         <div class="sub-menu">
           <ul>
-            <li>THAT LOUNGE LIFE</li>
-            <li>BEST AIRPORT LOUNGES</li>
+            <li><a href="?category=lounge life">THAT LOUNGE LIFE</a></li>
+            <li><a href="?category=best lounges">BEST AIRPORT LOUNGES</a></li>
           </ul>
         </div>
       </div>
     </section>
     <section class="main-content">
-      <h1>NEWS</h1>
+      <h1><%= @heading ? @heading.upcase : "NEWS" %></h1>
       <% @articles.each do |article| %>
         <div class="article">
-          <h2><%= "#{article.date.to_formatted_s(:rfc822)} #{article.title} #{article.author.first_name}" %></h2>
+          <h2><%= "#{article.date.to_formatted_s(:rfc822)} #{article.title} by  #{article.author.first_name}" %></h2>
           <%= article.article.html_safe.length > 200 ? article.article[0..200].html_safe : article.article.html_safe %>
         </div>
       <% end %>
