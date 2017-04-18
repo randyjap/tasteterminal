@@ -4,7 +4,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all.order('id DESC') 
+    @articles = Article.all.order('id DESC')
   end
 
   def edit
@@ -37,6 +37,6 @@ class Admin::ArticlesController < ApplicationController
 
   def article_params
     params.require(:article)
-      .permit(:title, :article, :date, :category, :featured, :author_id, :approved)
+      .permit(:title, :article, :date, :category, :featured, :location, :author_id, :approved)
   end
 end

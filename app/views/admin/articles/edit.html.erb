@@ -30,6 +30,11 @@
   </p>
 
   <p>
+    <%= f.label :location %><br>
+    <%= f.select :location, [['Hong Kong','hong kong'],['Taiwan','taiwan'],['Japan','japan']] %>
+  </p>
+
+  <p>
     <%= f.radio_button :featured, false, checked: true %>
     <%= f.label :featured, "Not Featured Article" %>
     <%= f.radio_button :featured, true %>

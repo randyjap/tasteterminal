@@ -54,7 +54,7 @@
       <% @articles.each do |article| %>
         <div class="article">
           <h2><%= "#{article.date.to_formatted_s(:rfc822)} #{article.title} #{article.author.first_name}" %></h2>
-          <%= article.article.length > 50 ? article.article[0..50].html_safe : article.article.html_safe %>
+          <%= article.article.html_safe.length > 200 ? article.article[0..200].html_safe : article.article.html_safe %>
         </div>
       <% end %>
     </section>
